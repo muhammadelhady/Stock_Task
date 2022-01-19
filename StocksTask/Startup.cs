@@ -57,7 +57,8 @@ namespace StocksTask
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseHangfireDashboard();
-            recurringJobManager.AddOrUpdate("Genrate New Stock", () => serviceProvider.GetService<IHangFireRepo>().Generate(), "* * * ? * *	");
+            recurringJobManager.AddOrUpdate("Genrate intial Stock", () => serviceProvider.GetService<IHangFireRepo>().GenerateDummyData(), "* * * ? * *");
+            recurringJobManager.AddOrUpdate("Genrate New Stock", () => serviceProvider.GetService<IHangFireRepo>().Generate(), "* * * ? * *");
             recurringJobManager.AddOrUpdate("Update Current Stock", () => serviceProvider.GetService<IHangFireRepo>().Update(), "* * * ? * *");
 
             app.UseRouting();

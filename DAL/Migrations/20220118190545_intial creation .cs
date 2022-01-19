@@ -26,6 +26,7 @@ namespace DAL.Migrations
                 {
                     table.PrimaryKey("PK_Stocks", x => x.Id);
                 });
+
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

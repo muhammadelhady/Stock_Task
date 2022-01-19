@@ -17,7 +17,7 @@ namespace BL.Repos.Implementation
             _stockRepo = stockRepo;
            
         }
-        public async Task<bool> Generate()
+        public async Task Generate()
         {
             try
             {
@@ -27,7 +27,7 @@ namespace BL.Repos.Implementation
                 stock.LastPrice = r.Next(1, 100);
                 stock.IsDelted = false;
                 stock.OldPrice = 0;
-                return await _stockRepo.New(stock);
+                 await _stockRepo.New(stock);
             }
             catch (Exception)
             {
@@ -38,7 +38,22 @@ namespace BL.Repos.Implementation
 
         }
 
-        public async Task<bool> Update()
+        public async Task GenerateDummyData()
+        {
+            try
+            {
+                for (int i = 0; i < 10; i++)
+                   await Generate();
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public async Task Update()
         {
             try
             {
@@ -57,7 +72,7 @@ namespace BL.Repos.Implementation
 
                 throw;
             }
-            return true;
+            
         }
     }
 }

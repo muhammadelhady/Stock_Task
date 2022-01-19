@@ -7,8 +7,9 @@ namespace BL.Repos.Interface
 {
     public interface IHangFireRepo
     {
-        public Task<bool> Update();
-        public Task<bool> Generate();
+        public Task Update();
+        public Task Generate();
+        public Task GenerateDummyData();
 
     }
 }
