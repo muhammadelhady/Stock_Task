@@ -6,7 +6,6 @@ using System.Text;
 using System.Threading.Tasks;
 using DAL.DataContext;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNet.SignalR;
 
 namespace BL.Repos.Implementation
 {
@@ -37,8 +36,6 @@ namespace BL.Repos.Implementation
                 throw;
             }
             bool result = await _context.SaveChangesAsync()>0;
-            var context = GlobalHost.ConnectionManager.GetHubContext<GameHub>();
-            context.Clients.All.addGame(game);
             return result;
         }
 

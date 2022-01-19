@@ -1,29 +1,65 @@
 ﻿@page
-    <script src="~/lib/microsoft/signalr/dist/browser/signalr.js"></script>
-    <script src="~/JsRepos/StocksRepo.js"></script>
-    <div class="container">
-        <div class="row">&nbsp;</div>
-        <div class="row">
-            <div class="col-2">Stocks</div>
-            <div class="col-12">
-                <table>
-                    <thead>
-                        <tr>id</tr>
-                        <tr>Stock Code</tr>
-                        <tr>Price</tr>
+@*<script src="~/JsRepos/StocksRepo.js"></script>*@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript" src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+<link rel="stylesheet" href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" />
 
-                    </thead>
-                    <tbody id="tableBody">
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-    </div>
+<div class="container">
+    <div class="row">&nbsp;</div>
     <div class="row">
+        <div class="col-2">Stocks</div>
         <div class="col-12">
-            <hr />
+            <table id="TblInfo" class="table table-bordered table-striped mt-4">
+                <thead>
+                    <tr class="bg-primary text-light">
+                        <td>Stock Code</td>
+                        <td>old Price</td>
+                        <td>Price</td>
+                        <td>Updated At</td>
+
+                    </tr>
+                </thead>
+                <tbody class="InfoTBody">
+                </tbody>
+            </table>
         </div>
     </div>
 
-    <script src="~/lib/microsoft/signalr/dist/browser/signalr.js"></script>
+</div>
+<div class="row">
+    <div class="col-12">
+        <hr />
+    </div>
+</div>
+
+
+
+@section scripts{
+    <script>
+
+    setInterval(function () {
+        $.ajax({
+            type: "GET",
+            url: "@Url.Action("getStocks")",
+            data:"",
+            dataType: "",
+            success: function (data) {
+                var rows = '';
+                $.each(data, function (index, item) {  
+                    rows += "<tr>";
+                    rows += "<td>" + item.stockCode + "</td>";
+                    rows += "<td>" + item.lastPrice + "</td>";
+                    rows += "<td>" + item.oldPrice + "</td>";
+                    rows += "<td>" + item.modifiedAt + "</td>";
+                    rows += "</tr>";
+                });
+                $('.InfoTBody').html(rows);
+                $('#TblInfo').DataTable();
+            }
+        });
+    }, 1000);//time in milliseconds
+    </script>
+}
+
+
+

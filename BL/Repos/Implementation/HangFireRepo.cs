@@ -10,10 +10,12 @@ namespace BL.Repos.Implementation
     class HangFireRepo : IHangFireRepo
     {
         private readonly IStockRepo _stockRepo;
+      
 
         public HangFireRepo(IStockRepo stockRepo)
         {
             _stockRepo = stockRepo;
+           
         }
         public async Task<bool> Generate()
         {
@@ -48,6 +50,7 @@ namespace BL.Repos.Implementation
                     s.LastPrice = random.Next(1, 100);
                     await _stockRepo.Update(s);
                 }
+              
             }
             catch (Exception)
             {

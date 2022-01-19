@@ -19,6 +19,8 @@ namespace BL.DependencyInjection
             services.DAL_DI(configuration);
             services.AddScoped<IStockRepo, StockRepo>();
             services.AddScoped<IHangFireRepo, HangFireRepo>();
+
+
         }
     }
 }

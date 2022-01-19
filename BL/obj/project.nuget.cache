@@ -1,10 +1,9 @@
 {
   "version": 2,
-  "dgSpecHash": "9ZCaN+AxHOP8pnRPlDyA5tn/KysGQJpC0UTh6/WQ9L54Rq6X/vyKen1eTNA1sf5sXPuDvFcxxzLH0Hc40hqOjA==",
+  "dgSpecHash": "APJX2BbeewGYUqz/jL7Xqov2NYaE59ZI0vqbv5WSu+p7fqZJAGSeYFfdKhxA/KDcFVGIh+kpjh7eDVS0FCUZgQ==",
   "success": true,
   "projectFilePath": "D:\\StocksTask\\BL\\BL.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\muham\\.nuget\\packages\\microsoft.aspnet.signalr.core\\2.4.2\\microsoft.aspnet.signalr.core.2.4.2.nupkg.sha512",
     "C:\\Users\\muham\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.0\\microsoft.bcl.asyncinterfaces.1.1.0.nupkg.sha512",
     "C:\\Users\\muham\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.0\\microsoft.bcl.hashcode.1.1.0.nupkg.sha512",
     "C:\\Users\\muham\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
@@ -92,16 +91,5 @@
     "C:\\Users\\muham\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
     "C:\\Users\\muham\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'Microsoft.AspNet.SignalR.Core 2.4.2' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
-      "libraryId": "Microsoft.AspNet.SignalR.Core",
-      "targetGraphs": [
-        ".NETCoreApp,Version=v3.1"
-      ]
-    }
-  ]
+  "logs": []
 }

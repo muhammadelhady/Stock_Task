@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using BL.Repos.Interface;
+using DAL.Entites;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using StocksTask.Models;
 using System;
@@ -12,10 +14,12 @@ namespace StocksTask.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IStockRepo _stockRepo;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IStockRepo stockRepo)
         {
             _logger = logger;
+            _stockRepo = stockRepo;
         }
 
         public IActionResult Index()
@@ -32,6 +36,11 @@ namespace StocksTask.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+        [HttpGet]
+        public async Task<List<Stock>> getStocks()
+        {
+            return await _stockRepo.AllStocks();
         }
     }
 }

@@ -12,7 +12,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using StocksTask.Hubs;
 
 namespace StocksTask
 {
@@ -39,7 +38,6 @@ namespace StocksTask
             // Add the processing server as IHostedService
             services.AddHangfireServer();
             services.AddControllersWithViews();
-            services.AddSignalR();
 
         }
 
@@ -59,20 +57,20 @@ namespace StocksTask
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseHangfireDashboard();
-            recurringJobManager.AddOrUpdate("Genrate New Stock", () => serviceProvider.GetService<IHangFireRepo>().Generate(), "*/30 * * * * *");
-            recurringJobManager.AddOrUpdate("Update Current Stock", () => serviceProvider.GetService<IHangFireRepo>().Update(), "*/30 * * * * *");
+            recurringJobManager.AddOrUpdate("Genrate New Stock", () => serviceProvider.GetService<IHangFireRepo>().Generate(), "* * * ? * *	");
+            recurringJobManager.AddOrUpdate("Update Current Stock", () => serviceProvider.GetService<IHangFireRepo>().Update(), "* * * ? * *");
 
             app.UseRouting();
 
             app.UseAuthorization();
+
+           
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
-                endpoints.MapHub<StockHub>("/StockHub");
-
             });
         }
     }
