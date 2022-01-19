@@ -1,0 +1,13 @@
+D:\StocksTask\BL\bin\Debug\netcoreapp3.1\BL.deps.json
+D:\StocksTask\BL\bin\Debug\netcoreapp3.1\BL.dll
+D:\StocksTask\BL\bin\Debug\netcoreapp3.1\BL.pdb
+D:\StocksTask\BL\bin\Debug\netcoreapp3.1\DAL.dll
+D:\StocksTask\BL\bin\Debug\netcoreapp3.1\DAL.pdb
+D:\StocksTask\BL\obj\Debug\netcoreapp3.1\BL.csproj.AssemblyReference.cache
+D:\StocksTask\BL\obj\Debug\netcoreapp3.1\BL.GeneratedMSBuildEditorConfig.editorconfig
+D:\StocksTask\BL\obj\Debug\netcoreapp3.1\BL.AssemblyInfoInputs.cache
+D:\StocksTask\BL\obj\Debug\netcoreapp3.1\BL.AssemblyInfo.cs
+D:\StocksTask\BL\obj\Debug\netcoreapp3.1\BL.csproj.CoreCompileInputs.cache
+D:\StocksTask\BL\obj\Debug\netcoreapp3.1\BL.csproj.CopyComplete
+D:\StocksTask\BL\obj\Debug\netcoreapp3.1\BL.dll
+D:\StocksTask\BL\obj\Debug\netcoreapp3.1\BL.pdb
